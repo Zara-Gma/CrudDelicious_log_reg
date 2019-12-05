@@ -1,0 +1,38 @@
+@model List<Chef>;
+
+    <div class="mb-5 container">
+        <div class="row">
+            <div class="col-sm">
+                <nav class=" navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="Chefs">Chefs</a>|&nbsp; &nbsp;
+                    <a class="navbar-brand" asp-controller="Dishes" asp-action="All">Dishes</a>
+                </nav>
+            </div>
+            <div class="col-sm">
+                <a class="text-right navbar-brand" asp-controller="Chefs" asp-action="NewChef">Add a Chef</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h5 class="mb-2">Check out our roster of Chefs!</h5>
+        <hr class="mb-3">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Chef's Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col"># of Dishes</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (Chef currentChef in Model) {
+                <tr>
+                    <td><a asp-controller="Chefs" asp-action="DetailsChef" asp-route-id="@currentChef.ChefId">@currentChef.FullName()</a></td>
+                    <td>@currentChef.age</td>
+                    <td>@currentChef.Dishes.Count()</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>

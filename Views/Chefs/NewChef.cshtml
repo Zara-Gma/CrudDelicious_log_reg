@@ -1,0 +1,34 @@
+@model Chef
+<div class="container">
+    <h1 class="mb-5">Add a new chef!</h1>
+    <form asp-controller="Chefs" asp-action="CreateChef">
+        <div class="form-group">
+            <label asp-for="FirstName">First Name</label>
+            <span class="text-danger font-weight-bold" asp-validation-for="FirstName"></span>
+            <input class="form-control" placeholder="Your name" asp-for="FirstName">
+        </div>
+        <div class="form-group">
+            <label asp-for="LastName">Last Name</label>
+            <span class="text-danger font-weight-bold" asp-validation-for="LastName"></span>
+            <input class="form-control" placeholder="Your last name" asp-for="LastName">
+        </div>
+        <div class="form-group">
+            <label asp-for="Dob">Date of birth:</label>
+            <span class="text-danger font-weight-bold" asp-validation-for="Dob"></span>
+            <input class="form-control" type="date" placeholder="" asp-for="Dob">
+        </div>
+        <div class="form-group">
+            <label for="Biography">Bio</label>
+            <span class="text-danger font-weight-bold" asp-validation-for="Biography"></span>
+            <textarea class="form-control" asp-for="Biography" rows="3"></textarea>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <a class="btn btn-danger btn-lg btn-block my-3" asp-controller="Chefs" asp-action="Chefs">Cancel</a>
+            </div>
+            <div class="col-md">
+                <button type="submit" class="btn btn-info btn-lg btn-block my-3">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,37 @@
+@model Dish
+
+<div class="container">
+    <h2 class="text-center">
+        Edit Dish @Model.DishId
+    </h2>
+    <form asp-controller="Dishes" asp-action="Update" asp-route-id="@Model.DishId">
+        <div class="form-group">
+            <label asp-for="Name">Name of Dish</label>
+            <span class="text-danger font-weight-bold" asp-validation-for="Name"></span>
+            <input class="form-control" placeholder="Your dish's name" asp-for="Name">
+        </div>
+        <div class="form-group">
+            <label asp-for="Calories"># of Calories</label>
+            <span class="text-danger font-weight-bold" asp-validation-for="Calories"></span>
+            <input class="form-control" type="number" asp-for="Calories">
+        </div>
+        <div class="form-group">
+            <label asp-for="Tastiness">Tastiness</label>
+            <span class="text-danger font-weight-bold" asp-validation-for="Tastiness"></span>
+            <input class="form-control" type="number" asp-for="Tastiness">
+        </div>
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <span class="text-danger font-weight-bold" asp-validation-for="Description"></span>
+            <textarea class="form-control" asp-for="Description" rows="3"></textarea>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <a class="btn btn-warning btn-lg btn-block" asp-controller="Dishes" asp-action="All">Cancel</a>
+            </div>
+            <div class="col-md">
+                <button type="submit" class="btn btn-info btn-lg btn-block">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

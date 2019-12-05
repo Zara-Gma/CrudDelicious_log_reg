@@ -1,0 +1,22 @@
+@model Chef
+
+<div class="container">
+    <h2 class="text-center">
+        Edit Chef @Model.ChefId
+    </h2>
+    <form asp-controller="Chefs" asp-action="Update" asp-route-id="@Model.ChefId">
+         <div class="form-group">
+            <label for="Biography">Bio</label>
+            <span class="text-danger font-weight-bold" asp-validation-for="Biography"></span>
+            <textarea class="form-control" asp-for="Biography" rows="3"></textarea>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <a class="btn btn-danger btn-lg btn-block my-3" asp-controller="Chefs" asp-action="Chefs">Cancel</a>
+            </div>
+            <div class="col-md">
+                <button type="submit" class="btn btn-info btn-lg btn-block my-3">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,14 @@
+@model Chef
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">@Model.FullName()</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@Model.age</h6>
+        <p class="card-text">@Model.Biography</p>
+        <a class="btn btn-primary" asp-controller="Chefs" asp-action="Chefs">Go back</a>&nbsp;
+        <a asp-controller="Chefs" asp-action="Edit" asp-route-id="@Model.ChefId" class="btn btn-warning">Edit</a>&nbsp;
+        <a asp-controller="Chefs" asp-action="Delete" asp-route-id="@Model.ChefId" class="btn btn-danger">
+        Delete
+      </a>
+    </div>
+</div>

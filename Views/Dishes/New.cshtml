@@ -1,0 +1,43 @@
+@model NewDishPage;
+
+<div class="container">
+    <h1>Add a new dish!</h1>
+    <form asp-controller="Dishes" asp-action="Create">
+        <div class="form-group">
+            <label>Chef</label>
+            <select asp-for="SelectedChefId" class="form-control">
+                @foreach (Chef currentChef in Model.AllChefs) {
+                <option value="@currentChef.ChefId">@currentChef.FullName()</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewDish.Name">Name of Dish</label>
+            <span class="text-danger font-weight-bold" asp-validation-for="NewDish.Name"></span>
+            <input class="form-control" placeholder="Your dish's name" asp-for="NewDish.Name">
+        </div>
+        <div class="form-group">
+            <label asp-for="NewDish.Calories"># of Calories</label>
+            <span class="text-danger font-weight-bold" asp-validation-for="NewDish.Calories"></span>
+            <input class="form-control" type="number" asp-for="NewDish.Calories">
+        </div>
+        <div class="form-group">
+            <label asp-for="NewDish.Tastiness">Tastiness</label>
+            <span class="text-danger font-weight-bold" asp-validation-for="NewDish.Tastiness"></span>
+            <input class="form-control" type="number" asp-for="NewDish.Tastiness">
+        </div>
+        <div class="form-group">
+            <label asp-for="NewDish.Description"></label>
+            <span class="text-danger font-weight-bold" asp-validation-for="NewDish.Description"></span>
+            <textarea class="form-control" asp-for="NewDish.Description" rows="3"></textarea>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <a class="btn btn-danger btn-lg btn-block my-3" asp-controller="Dishes" asp-action="All">Cancel</a>
+            </div>
+            <div class="col-md">
+                <button type="submit" class="btn btn-info btn-lg btn-block my-3">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

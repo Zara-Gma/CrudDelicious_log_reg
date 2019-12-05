@@ -1,0 +1,43 @@
+@model List<Dish>;
+
+    <div class="mb-5 container">
+        <div class="row">
+            <div class="col-sm">
+                <nav class=" navbar navbar-expand-lg">
+                    <a class="navbar-brand" asp-controller="Chefs" asp-action="Chefs">Chefs</a>|&nbsp; &nbsp;
+                    <a class="navbar-brand" asp-controller="Dishes" asp-action="All">Dishes</a>
+                </nav>
+            </div>
+            <div class="col-sm">
+                <a class="text-right navbar-brand" asp-controller="Dishes" asp-action="New">Add a Dish</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h5 class="mb-2">Yum, take a look at our tasty dishes!</h5>
+        <hr class="mb-3">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Dish's Name</th>
+                    <th scope="col">Chef's Name</th>
+                    <th scope="col">Tastiness</th>
+                    <th scope="col">Calories</th>
+                    <th scope="col">Description</th>
+                </tr>
+            </thead>
+                    @foreach (var currentDish in Model)
+            {
+            <tbody>
+                <tr>
+                    <td><a asp-controller="Dishes" asp-action="Details" asp-route-id="@currentDish.DishId">@currentDish.Name</a></td>
+                    <td>@currentDish.Creator.FullName()</td>
+                    <td>@currentDish.Tastiness</td>
+                    <td>@currentDish.Calories</td>
+                    <td>@currentDish.Description</td>
+                </tr>
+            </tbody>
+            }
+        </table>
+    </div>
